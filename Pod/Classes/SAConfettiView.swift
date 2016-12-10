@@ -19,32 +19,25 @@ public class SAConfettiView: UIView {
         case Image(UIImage)
     }
     
+    public enum ConfettiFactory {
+        /// Creates confetti for each type without coloring
+        case Types([ConfettiType])
+        /// Creates random confetti for each color
+        case ColorsAndTypes([UIColor], [ConfettiType])
+        /// Creates confetti for each type with random coloring
+        case TypesAndColors([ConfettiType], [UIColor])
+    }
+    
     var emitter: CAEmitterLayer!
-    public var colors: [UIColor]!
-    public var intensity: Float!
-    public var type: ConfettiType!
-    private var active :Bool!
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setup()
-    }
-    
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        setup()
-    }
-    
-    func setup() {
-        colors = [UIColor(red:0.95, green:0.40, blue:0.27, alpha:1.0),
-                  UIColor(red:1.00, green:0.78, blue:0.36, alpha:1.0),
-                  UIColor(red:0.48, green:0.78, blue:0.64, alpha:1.0),
-                  UIColor(red:0.30, green:0.76, blue:0.85, alpha:1.0),
-                  UIColor(red:0.58, green:0.39, blue:0.55, alpha:1.0)]
-        intensity = 0.5
-        type = .Confetti
-        active = false
-    }
+    public var intensity: Float = 0.5
+    public var factory: ConfettiFactory = .ColorsAndTypes([
+        UIColor(red:0.95, green:0.40, blue:0.27, alpha:1.0),
+        UIColor(red:1.00, green:0.78, blue:0.36, alpha:1.0),
+        UIColor(red:0.48, green:0.78, blue:0.64, alpha:1.0),
+        UIColor(red:0.30, green:0.76, blue:0.85, alpha:1.0),
+        UIColor(red:0.58, green:0.39, blue:0.55, alpha:1.0)
+        ], [.Confetti])
+    private var active: Bool = false
     
     public func startConfetti() {
         emitter = CAEmitterLayer()
@@ -54,8 +47,22 @@ public class SAConfettiView: UIView {
         emitter.emitterSize = CGSize(width: frame.size.width, height: 1)
         
         var cells = [CAEmitterCell]()
-        for color in colors {
-            cells.append(confetti(type, with: color))
+        
+        switch factory {
+        case .Types(let types):
+            for type in types {
+                cells.append(confetti(type))
+            }
+        case .ColorsAndTypes(let colors, let types):
+            for color in colors {
+                let type = randomElement(from: types) ?? .Confetti
+                cells.append(confetti(type, with: color))
+            }
+        case .TypesAndColors(let types, let colors):
+            for type in types {
+                let color = randomElement(from: colors)
+                cells.append(confetti(type, with: color))
+            }
         }
         
         emitter.emitterCells = cells
@@ -120,5 +127,13 @@ public class SAConfettiView: UIView {
     
     public func isActive() -> Bool {
         return self.active
+    }
+    
+    // MARK: Helpers
+    
+    func randomElement<T>(from array: [T]) -> T? {
+        guard array.count > 0 else { return nil }
+        let index = Int(arc4random_uniform(UInt32(array.count)))
+        return array[index]
     }
 }
