@@ -18,6 +18,7 @@
 		A73C2C2CBFA5E53CDB01AA8A9A4519D6 /* SAConfettiView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE4D625470F162654CE33A8D89D57ADE /* SAConfettiView-dummy.m */; };
 		A77D19109E1E6017CD16D1F4BD7DF7FF /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = A3D3748BE936C386B80C915855865C65 /* triangle.png */; };
 		ABA2CA0F617A5D034009EAC737968CFB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9DE615671731BF3AEFB3CB1F984FA8F /* UIKit.framework */; };
+		B60836A31DFD7E1D00090AC5 /* SAEmojiImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60836A01DFD7E1500090AC5 /* SAEmojiImage.swift */; };
 		B63B4CED54C78179996915D3FD02178E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91413329813FA6FE5A78842159E69621 /* Foundation.framework */; };
 		B80E5BC4718AC81592CD02387B38BE95 /* Pods-SAConfettiView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D9BC26EBF2BB1E22B69EE4490D41AF1B /* Pods-SAConfettiView_Example-dummy.m */; };
 		D7F2A6751619E97FE2D51FA8EBABC140 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91413329813FA6FE5A78842159E69621 /* Foundation.framework */; };
@@ -80,6 +81,7 @@
 		AE4D625470F162654CE33A8D89D57ADE /* SAConfettiView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SAConfettiView-dummy.m"; sourceTree = "<group>"; };
 		AF603D52D8DC00624561A0639B2E3A46 /* Pods-SAConfettiView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SAConfettiView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		B42E07E0F0C0A5A7EF950D7F4BBFCBBB /* Pods-SAConfettiView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SAConfettiView_Tests.modulemap"; sourceTree = "<group>"; };
+		B60836A01DFD7E1500090AC5 /* SAEmojiImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SAEmojiImage.swift; sourceTree = "<group>"; };
 		B90B1C64FBF1F9485F7A9C6A61E761C3 /* SAConfettiView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SAConfettiView.modulemap; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C4973B68510353854FDC0B16D5DDA965 /* Pods-SAConfettiView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SAConfettiView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				5868DEEA8C40254B5624ECA9D4E4D603 /* SAConfettiView.swift */,
+				B60836A01DFD7E1500090AC5 /* SAEmojiImage.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -400,6 +403,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					74F3AEAC875FE9484D85368FD5858C30 = {
+						LastSwiftMigration = 0810;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -455,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60836A31DFD7E1D00090AC5 /* SAEmojiImage.swift in Sources */,
 				A73C2C2CBFA5E53CDB01AA8A9A4519D6 /* SAConfettiView-dummy.m in Sources */,
 				5B0A9F4AA073FBB79E8BCBCC93D5DDBA /* SAConfettiView.swift in Sources */,
 			);
@@ -556,6 +565,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -665,6 +675,7 @@
 				PRODUCT_NAME = SAConfettiView;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

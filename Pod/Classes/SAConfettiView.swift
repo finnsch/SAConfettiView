@@ -16,6 +16,7 @@ public class SAConfettiView: UIView {
         case Triangle
         case Star
         case Diamond
+        case Emoji(String)
         case Image(UIImage)
     }
     
@@ -88,6 +89,8 @@ public class SAConfettiView: UIView {
             fileName = "star"
         case .Diamond:
             fileName = "diamond"
+        case let .Emoji(emoji):
+            return SAEmojiImage(emoji: emoji, size: CGSizeMake(40, 40))
         case let .Image(customImage):
             return customImage
         }
